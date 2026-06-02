@@ -1,0 +1,88 @@
+.game-info {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border-left: 4px solid #667eea;
+}
+
+.info-section {
+  margin-bottom: 16px;
+}
+
+.info-section:last-child {
+  margin-bottom: 0;
+}
+
+.info-section h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.status-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  padding: 8px 12px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 4px;
+  border-left: 3px solid #667eea;
+}
+
+.status-text.check {
+  background: rgba(245, 87, 108, 0.1);
+  color: #ff6b6b;
+  border-left-color: #ff6b6b;
+}
+
+.move-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.move-item {
+  padding: 4px 8px;
+  background: rgba(102, 126, 234, 0.2);
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.no-moves {
+  color: #888;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.premove-indicator {
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 4px;
+  font-weight: 600;
+  color: white;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .game-info {
+    padding: 12px;
+  }
+
+  .info-section {
+    margin-bottom: 12px;
+  }
+
+  .status-text {
+    font-size: 14px;
+  }
+
+  .move-item {
+    font-size: 12px;
+  }
+}

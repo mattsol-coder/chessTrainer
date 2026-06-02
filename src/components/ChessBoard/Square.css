@@ -1,0 +1,33 @@
+.square {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+
+.square.light {
+  background-color: #ede6d3;
+}
+
+.square.dark {
+  background-color: #b7ad8f;
+}
+
+.square.last-move {
+  background-color: #baca44 !important;
+  opacity: 0.8;
+}
+
+.square.drag-over {
+  background-color: #5eb8e8;
+  box-shadow: inset 0 0 0 2px rgba(94, 184, 232, 0.8);
+}
+
+.square:active {
+  cursor: grabbing;
+}

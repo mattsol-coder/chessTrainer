@@ -1,0 +1,38 @@
+.piece {
+  font-size: 40px;
+  cursor: grab;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  transition: filter 0.1s ease;
+}
+
+.piece.white {
+  color: #f0e6d2;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.piece.black {
+  color: #222;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+}
+
+.piece:hover {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+}
+
+.piece.dragging {
+  cursor: grabbing;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+  opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+  .piece {
+    font-size: 26px;
+  }
+}
