@@ -29,16 +29,23 @@ const App: React.FC = () => {
         className="app-container"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.4 }}
       >
         <motion.header
           className="app-header"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.1 }}
+          transition={{
+            delay: 0.1,
+            type: 'spring',
+            stiffness: 400,
+            damping: 40,
+          }}
         >
-          <h1>♟ Chess Endgame Trainer</h1>
-          <p>Master the fundamentals with interactive endgame puzzles</p>
+          <div className="header-content">
+            <h1>♟ Chess Endgame Trainer</h1>
+            <p>Master fundamental endgames with interactive puzzles</p>
+          </div>
         </motion.header>
 
         <div className="app-content">

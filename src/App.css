@@ -1,53 +1,68 @@
 .app {
   min-height: 100vh;
-  padding: 20px;
+  padding: 24px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 40px;
 }
 
 .app-container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
 }
 
 .app-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
+}
+
+.header-content {
+  animation: fadeInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .app-header h1 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-text-primary);
+  letter-spacing: -0.5px;
 }
 
 .app-header p {
-  font-size: 14px;
-  color: #aaa;
+  font-size: 13px;
+  color: var(--color-text-secondary);
   letter-spacing: 0.3px;
+  font-weight: 500;
 }
 
 .app-content {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 320px;
   gap: 20px;
 }
 
 .main-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .side-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -55,14 +70,20 @@
     grid-template-columns: 1fr;
   }
 
+  .side-column {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .app-header h1 {
-    font-size: 28px;
+    font-size: 26px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .app {
-    padding: 12px;
+    padding: 16px;
+    padding-top: 24px;
   }
 
   .app-header {
@@ -75,5 +96,32 @@
 
   .app-header p {
     font-size: 12px;
+  }
+
+  .app-content {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 12px;
+    padding-top: 16px;
+  }
+
+  .app-header {
+    margin-bottom: 16px;
+  }
+
+  .app-header h1 {
+    font-size: 20px;
+  }
+
+  .app-header p {
+    font-size: 11px;
+  }
+
+  .app-content {
+    gap: 12px;
   }
 }

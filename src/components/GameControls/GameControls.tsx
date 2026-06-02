@@ -12,20 +12,27 @@ const GameControls: React.FC<Props> = ({ onReset, onUndo, canUndo }) => {
   return (
     <motion.div
       className="game-controls"
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 }}
+      transition={{
+        delay: 0.15,
+        type: 'spring',
+        stiffness: 400,
+        damping: 40,
+      }}
     >
       <button
         className="control-button reset-button"
         onClick={onReset}
+        title="Start new game"
       >
-        🔄 Reset
+        🔄 New Game
       </button>
       <button
         className="control-button undo-button"
         onClick={onUndo}
         disabled={!canUndo}
+        title="Undo last move (Ctrl+Z)"
       >
         ↶ Undo
       </button>

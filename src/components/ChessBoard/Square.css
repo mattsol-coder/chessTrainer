@@ -7,27 +7,64 @@
   position: relative;
   cursor: grab;
   user-select: none;
-  transition: background-color 0.15s ease;
+  -webkit-user-select: none;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
+  overflow: hidden;
 }
 
 .square.light {
-  background-color: #ede6d3;
+  background-color: var(--color-square-light);
 }
 
 .square.dark {
-  background-color: #b7ad8f;
+  background-color: var(--color-square-dark);
 }
 
-.square.last-move {
-  background-color: #baca44 !important;
-  opacity: 0.8;
+.square.light.hover {
+  background-color: #fce8c3;
 }
 
-.square.drag-over {
-  background-color: #5eb8e8;
-  box-shadow: inset 0 0 0 2px rgba(94, 184, 232, 0.8);
+.square.dark.hover {
+  background-color: #bfa883;
+}
+
+.square.light.last-move {
+  background-color: var(--color-square-highlight);
+}
+
+.square.dark.last-move {
+  background-color: #baca44;
+}
+
+.square.light.drag-over {
+  background-color: #baca44;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.square.dark.drag-over {
+  background-color: #baca44;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.square.selected::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(94, 184, 232, 0.3);
+  border: 2px solid #5eb8e8;
+  border-radius: 2px;
 }
 
 .square:active {
   cursor: grabbing;
+}
+
+/* Animation for highlight appearance */
+@keyframes highlight-appear {
+  from {
+    background-color: inherit;
+  }
+  to {
+    background-color: var(--color-square-highlight);
+  }
 }

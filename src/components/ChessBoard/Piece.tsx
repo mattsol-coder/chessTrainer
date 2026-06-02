@@ -6,7 +6,7 @@ interface Props {
   piece: string
   square: string
   isDragging: boolean
-  onDragStart: () => void
+  onDragStart: (e: React.DragEvent) => void
   onDragEnd: () => void
 }
 
@@ -40,10 +40,16 @@ const Piece: React.FC<Props> = ({
       className={`piece ${isWhite ? 'white' : 'black'} ${isDragging ? 'dragging' : ''}`}
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
-      initial={{ scale: 1 }}
-      animate={isDragging ? { scale: 1.1, zIndex: 100 } : { scale: 1, zIndex: 1 }}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 40 }}
+      initial={{ scale: 1, opacity: 1 }}
+      animate={isDragging ? { scale: 1.15, opacity: 0.95 } : { scale: 1, opacity: 1 }}
+      exit={{ scale: 0.95, opacity: 0 }}
+      whileHover={!isDragging ? { scale: 1.08 } : {}}
+      transition={{
+        type: 'spring',
+        stiffness: 500,
+        damping: 35,
+        mass: 0.5,
+      }}
     >
       {pieceUnicode[piece]}
     </motion.div>

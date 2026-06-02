@@ -7,6 +7,7 @@ interface Props {
   isLight: boolean
   isLastMove: boolean
   isDragOver: boolean
+  isPremoveSquare: boolean
   onDragOver: () => void
   onDrop: () => void
   onDragLeave: () => void
@@ -18,6 +19,7 @@ const Square: React.FC<Props> = ({
   isLight,
   isLastMove,
   isDragOver,
+  isPremoveSquare,
   onDragOver,
   onDrop,
   onDragLeave,
@@ -28,14 +30,21 @@ const Square: React.FC<Props> = ({
       className={`square ${isLight ? 'light' : 'dark'} ${isLastMove ? 'last-move' : ''} ${isDragOver ? 'drag-over' : ''}`}
       onDragOver={(e) => {
         e.preventDefault()
+        e.stopPropagation()
         onDragOver()
       }}
       onDrop={(e) => {
         e.preventDefault()
+        e.stopPropagation()
         onDrop()
       }}
-      onDragLeave={onDragLeave}
-      whileHover={{ scale: 0.98 }}
+      onDragLeave={(e) => {
+        e.preventDefault()
+        onDragLeave()
+      }}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 1 }}
       transition={{ type: 'spring', stiffness: 400, damping: 40 }}
     >
       {children}
